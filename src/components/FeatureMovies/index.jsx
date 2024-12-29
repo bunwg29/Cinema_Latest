@@ -44,7 +44,11 @@ const FeatureMovie = () => {
           <Movie key={movie.id} data={movie} />
         ))}
 
-      <PageinateIndicator movies={movies} activeMovieId={activeMovieId} setActiveMovieId={setActiveMovieId}/>
+      <PageinateIndicator
+        movies={movies}
+        activeMovieId={activeMovieId}
+        setActiveMovieId={setActiveMovieId}
+      />
     </div>
   );
 };
