@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
-import PageinateIndicator from "./PaginateIndicator";
+import PaginateIndicator from "./PaginateIndicator";
 
 const FeatureMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -44,7 +44,7 @@ const FeatureMovie = () => {
           <Movie key={movie.id} data={movie} />
         ))}
 
-      <PageinateIndicator
+      <PaginateIndicator
         movies={movies}
         activeMovieId={activeMovieId}
         setActiveMovieId={setActiveMovieId}

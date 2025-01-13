@@ -1,4 +1,4 @@
-function PageinateIndicator({ movies, activeMovieId, setActiveMovieId }) {
+function PaginateIndicator({ movies, activeMovieId, setActiveMovieId }) {
   return (
     <div className="absolute bottom-[10%] right-8">
       <ul className="flex gap-1">
@@ -13,4 +13,4 @@ function PageinateIndicator({ movies, activeMovieId, setActiveMovieId }) {
     </div>
   );
 }
-export default PageinateIndicator;
+export default PaginateIndicator;

@@ -4,7 +4,7 @@ function MovieCard({ title, releaseDate, poster, point, mediaType }) {
   return (
     <div className="relative rounded-lg border border-slate-800">
       {mediaType === "tv" && (
-        <p className="texg-sm absolute right-1 top-1 rounded bg-black p-1 font-bold text-white shadow-md">
+        <p className="text-sm absolute right-1 top-1 rounded bg-black p-1 font-bold text-white shadow-md">
           TV Show
         </p>
       )}
