@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react";
-import Movie from "./Movie";
 import PaginateIndicator from "./PaginateIndicator";
+import Movie from "./Movie";
+import { useEffect, useState } from "react";
+import useFetch from "@hooks/useFetch";
 
-const FeatureMovie = () => {
-  const [movies, setMovies] = useState([]);
-  const [activeMovieId, setActiveMovieId] = useState(null);
+const FeatureMovies = () => {
+  const [activeMovieId, setActiveMovieId] = useState();
+  const { data: popularMoviesResponse } = useFetch({ url: "/movie/popular" });
+
+  const movies = (popularMoviesResponse.results || []).slice(0, 4);
 
   useEffect(() => {
-    fetch("https://api.themoviedb.org/3/movie/popular", {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYTQ2MDE1NTNiMGM5OGViYzE2NmVmZTMxYmIzMDJjNyIsIm5iZiI6MTczNTI4OTQ4OC43ODQsInN1YiI6IjY3NmU2YTkwMGM0NDAyYjYzMTkyOTYyMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.R8yuaI0PWtIOq8Ds510DVIINFLM7UybAEUa6I_I_F10",
-      },
-    }).then(async (res) => {
-      const data = await res.json();
-      const popularMovies = data.results.slice(0, 4);
-      setMovies(popularMovies);
-      setActiveMovieId(popularMovies[0].id);
-    });
-  }, []);
+    if (movies[0]?.id) {
+      setActiveMovieId(movies[0].id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(movies)]);
+
+  popularMoviesResponse.results || [];
 
   useEffect(() => {
     if (movies.length > 0) {
@@ -35,7 +31,7 @@ const FeatureMovie = () => {
       return () => clearInterval(interval);
     }
   }, [movies]);
-
+  
   return (
     <div className="relative text-white">
       {movies
@@ -52,5 +48,4 @@ const FeatureMovie = () => {
     </div>
   );
 };
-
-export default FeatureMovie;
+export default FeatureMovies;
