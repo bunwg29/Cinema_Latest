@@ -3,8 +3,8 @@ import Loading from "@components/Loading";
 import Banner from "@components/MediaDetail/Banner";
 import ActorList from "@components/MediaDetail/ActorList";
 import RelatedMediaList from "@/components/MediaDetail/RelatedMediaList";
-import MovieInformation from "@components/MediaDetail/MovieInformation";
 import useFetch from "@hooks/useFetch";
+import TVShowInformation from "@components/MediaDetail/TVShowInformation";
 
 function TVShowDetail() {
   const { id } = useParams();
@@ -65,7 +65,7 @@ function TVShowDetail() {
             />
           </div>
           <div className="flex-1">
-            <MovieInformation tvInfo={tvInfo} />
+            <TVShowInformation tvInfo={tvInfo} />
           </div>
         </div>
       </div>
