@@ -12,10 +12,10 @@ function SeasonsList({ seasons = [] }) {
             className="flex gap-4 rounded-lg border border-slate-200 p-3 shadow-md"
           >
             <ImageComponent
-              src={`https://image.tmdb.org/t/p/w130_and_h195_face${season.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w300${season.poster_path}`}
               width={130}
               height={195}
-              className="h-[195px] w-[130px] rounded-lg"
+              className="w-1/4 rounded-lg"
             />
             <div className="space-y-1">
               <p className="text-[1.4vw] font-bold">{season.name}</p>

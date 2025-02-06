@@ -17,7 +17,7 @@ function ActorInfo({ name, character, profilePath, episodeCount }) {
       <div className="p-3">
         <p className="font-bold">{name}</p>
         <p>{character}</p>
-        <p>{episodeCount} Episodes</p>
+        {episodeCount && <p>{episodeCount} Episodes</p>}
       </div>
     </div>
   );
