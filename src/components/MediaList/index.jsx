@@ -1,26 +1,14 @@
 import MovieCard from "@components/MovieCard";
-import { useEffect, useState } from "react";
+import useFetch from "@hooks/useFetch";
+import { useState } from "react";
 
 function MediaList({ title, tabs }) {
-  const [mediaList, setMediaList] = useState([]);
   const [activeTabId, setActiveTabId] = useState(tabs[0]?.id);
 
-  useEffect(() => {
-    const url = tabs.find((tab) => tab.id === activeTabId)?.url;
-    if (url) {
-      fetch(url, {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
-        },
-      }).then(async (res) => {
-        const data = await res.json();
-        const trendingMediaList = data.results.slice(0, 12);
-        setMediaList(trendingMediaList);
-      });
-    }
-  }, [activeTabId, tabs]);
+  const url = tabs.find((tab) => tab.id === activeTabId)?.url;
+  const { data } = useFetch({ url });
+
+  const mediaList = (data.results || []).slice(0, 12);
 
   return (
     <div className="bg-black px-8 py-10 text-[1.2vw] text-white">
