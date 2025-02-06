@@ -1,6 +1,6 @@
 import ImageComponent from "@components/Image";
 
-function ActorInfo({ name, character, profilePath }) {
+function ActorInfo({ name, character, profilePath, episodeCount }) {
   return (
     <div className="rounded-lg border border-slate-300 bg-black shadow-sm">
       <ImageComponent
@@ -17,7 +17,7 @@ function ActorInfo({ name, character, profilePath }) {
       <div className="p-3">
         <p className="font-bold">{name}</p>
         <p>{character}</p>
-        <p>18 Episodes</p>
+        <p>{episodeCount} Episodes</p>
       </div>
     </div>
   );
