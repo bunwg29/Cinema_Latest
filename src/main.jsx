@@ -6,10 +6,11 @@ import RootLayouts from "@pages/RootLayouts";
 import HomePage from "@pages/HomePage";
 import MovieDetail from "@pages/MovieDetail";
 import TVShowDetail from "@pages/TVShowDetail";
+import ModalProvider from "@context/ModalProvider";
 
 const router = createBrowserRouter([
   {
-    element: <RootLayouts/>,
+    element: <RootLayouts />,
     children: [
       {
         path: "/",
@@ -17,18 +18,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/movie/:id",
-        element: <MovieDetail />
+        element: <MovieDetail />,
       },
       {
         path: "/tv/:id",
-        element: <TVShowDetail />
-      }
-    ]
+        element: <TVShowDetail />,
+      },
+    ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ModalProvider>
+      <RouterProvider router={router} />
+    </ModalProvider>
   </StrictMode>,
 );
