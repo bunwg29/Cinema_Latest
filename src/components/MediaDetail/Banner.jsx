@@ -17,7 +17,7 @@ function Banner({
   overview,
   trailerVideoKey,
 }) {
-  const { setIsShowing, setContent } = useModalContext();
+  const { openPopup } = useModalContext();
 
   if (!title) return null;
 
@@ -59,8 +59,7 @@ function Banner({
             </div>
             <button
               onClick={() => {
-                setIsShowing(true);
-                setContent(
+                openPopup(
                   <iframe
                     title="Trailer"
                     src={`https://www.youtube.com/embed/${trailerVideoKey}`}
