@@ -2,13 +2,15 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./pages/HomePage.jsx";
-import MovieDetail from "./pages/MovieDetail.jsx";
-import RootLayouts from "./pages/RootLayouts.jsx";
+import RootLayouts from "@pages/RootLayouts";
+import HomePage from "@pages/HomePage";
+import MovieDetail from "@pages/MovieDetail";
+import TVShowDetail from "@pages/TVShowDetail";
+import ModalProvider from "@context/ModalProvider";
 
 const router = createBrowserRouter([
   {
-    element: <RootLayouts/>,
+    element: <RootLayouts />,
     children: [
       {
         path: "/",
@@ -16,14 +18,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/movie/:id",
-        element: <MovieDetail />
-      }
-    ]
+        element: <MovieDetail />,
+      },
+      {
+        path: "/tv/:id",
+        element: <TVShowDetail />,
+      },
+    ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ModalProvider>
+      <RouterProvider router={router} />
+    </ModalProvider>
   </StrictMode>,
 );

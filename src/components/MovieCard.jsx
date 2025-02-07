@@ -4,7 +4,7 @@ import ImageComponent from "./Image";
 
 function MovieCard({ id, title, releaseDate, poster, point, mediaType }) {
   return (
-    <Link to={`/movie/${id}`} className="rounded-lg border border-slate-800">
+    <Link to={mediaType === 'tv' ? `/tv/${id}` : `/movie/${id}`} className="rounded-lg border border-slate-800">
       <div className="relative rounded-lg">
         {mediaType === "tv" && (
           <p className="absolute right-1 top-1 rounded bg-black p-1 text-sm font-bold text-white shadow-md">

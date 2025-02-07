@@ -17,6 +17,7 @@ function ActorList({ actors = [] }) {
             name={actor.name}
             character={actor.character}
             profilePath={actor.profile_path}
+            episodeCount={actor.episodeCount}
           />
         ))}
         <ActorInfo />
