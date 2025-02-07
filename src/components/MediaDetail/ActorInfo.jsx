@@ -1,14 +1,13 @@
 import ImageComponent from "@components/Image";
+import { Link } from "react-router-dom";
 
-function ActorInfo({ name, character, profilePath, episodeCount }) {
+function ActorInfo({ id, name, character, profilePath, episodeCount }) {
   return (
-    <div className="rounded-lg border border-slate-300 bg-black shadow-sm">
+    <Link to={`/people/${id}`} className="rounded-lg border border-slate-300 bg-black shadow-sm">
       <ImageComponent
         className="rounded-lg"
         src={
-          profilePath
-            ? `https://image.tmdb.org/t/p/w276_and_h350_face${profilePath}`
-            : "/ActorNoImage.svg"
+          profilePath && `https://image.tmdb.org/t/p/w276_and_h350_face${profilePath}`
         }
         width={276}
         height={350}
@@ -19,7 +18,7 @@ function ActorInfo({ name, character, profilePath, episodeCount }) {
         <p>{character}</p>
         {episodeCount && <p>{episodeCount} Episodes</p>}
       </div>
-    </div>
+    </Link>
   );
 }
 export default ActorInfo;
