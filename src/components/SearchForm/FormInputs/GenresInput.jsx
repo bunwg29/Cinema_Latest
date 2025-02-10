@@ -5,7 +5,7 @@ import { useWatch } from "react-hook-form";
 function GenresInput({ control, onChange, value = [] }) {
   const mediaType = useWatch({ name: "mediaType", control });
 
-  const data = useFetch(
+  const { data } = useFetch(
     {
       url: `/genre/${mediaType}/list`,
     },
@@ -24,7 +24,7 @@ function GenresInput({ control, onChange, value = [] }) {
           key={genre.id}
           className={`cursor-pointer rounded-lg border px-2 py-1 ${value.includes(genre.id) ? "bg-black text-white" : ""}`}
           onClick={() => {
-            let newValue = [ ...value ];
+            let newValue = [...value];
             if (value.includes(genre.id)) {
               newValue = newValue.filter((g) => g !== genre.id);
             } else {
