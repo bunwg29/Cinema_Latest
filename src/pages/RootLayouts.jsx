@@ -1,12 +1,17 @@
-import { Outlet } from "react-router-dom"
-import Header from "@components/Header"
+import { Outlet } from "react-router-dom";
+import Header from "@components/Header";
+import { Suspense } from "react";
+import Loading from "@components/Loading";
 
 function RootLayouts() {
   return (
     <div>
-      <Header/>
-      <Outlet/>
+      <Header />
+      <Suspense fallback={ <Loading /> }>
+        <Outlet />
+      </Suspense>
     </div>
-  )
+  );
 }
-export default RootLayouts
+
+export default RootLayouts;
