@@ -60,6 +60,7 @@ function MovieDetail() {
               mediaList={relatedMovies}
               isLoading={isRelatedMovieLoading}
               title="More like this"
+              className="mt-6"
             />
           </div>
           <div className="flex-1">
