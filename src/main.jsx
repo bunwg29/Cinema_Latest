@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayouts from "@pages/RootLayouts";
 import ModalProvider from "@context/ModalProvider";
+import SearchPage from "@components/SearchPage";
 
 const MovieDetail = lazy(() => import("@pages/MovieDetail"));
 const HomePage = lazy(() => import("@pages/HomePage"));
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           );
           return res;
         },
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
       },
     ],
   },

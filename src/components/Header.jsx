@@ -9,7 +9,7 @@ function Header() {
         <Link to="/">
           <img src="/netflix.png" alt="netflix" className="w-16 sm:w-28" />
         </Link>
-        
+
         <a href="#" className="lg:text-xl">
           Phim
         </a>
@@ -18,7 +18,12 @@ function Header() {
         </a>
       </div>
       <div>
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="cursor-pointer" />
+        <Link to="/search">
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className="cursor-pointer"
+          />
+        </Link>
       </div>
     </header>
   );
