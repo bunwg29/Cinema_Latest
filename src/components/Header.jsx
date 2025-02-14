@@ -9,16 +9,21 @@ function Header() {
         <Link to="/">
           <img src="/netflix.png" alt="netflix" className="w-16 sm:w-28" />
         </Link>
-        
-        <a href="#" className="lg:text-xl">
-          Phim
-        </a>
-        <a href="#" className="lg:text-xl">
-          Truyền hình
-        </a>
+
+        <Link to="/search?mediaType=movie" className="lg:text-xl">
+          Movie
+        </Link>
+        <Link to="/search?mediaType=tv" className="lg:text-xl">
+          TV Show
+        </Link>
       </div>
       <div>
-        <FontAwesomeIcon icon={faMagnifyingGlass} className="cursor-pointer" />
+        <Link to="/search">
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className="cursor-pointer"
+          />
+        </Link>
       </div>
     </header>
   );
